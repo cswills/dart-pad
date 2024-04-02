@@ -1,6 +1,7 @@
 name: package:sketch_pad
 
-permissions: read-all
+permissions:
+  contents: write
 
 on:
   push:
