@@ -79,8 +79,8 @@ class MiniIconButton extends StatelessWidget {
       waitDuration: tooltipDelay,
       child: IconButton(
         style: ButtonStyle(
-          shape: WidgetStateProperty.all(const CircleBorder()),
-          backgroundColor: WidgetStateProperty.all(backgroundColor),
+          shape: MaterialStateProperty.all(const CircleBorder()),
+          backgroundColor: MaterialStateProperty.all(backgroundColor),
         ),
         icon: Icon(icon),
         iconSize: small ? 16 : smallIconSize,
@@ -104,11 +104,11 @@ class RunButton extends StatelessWidget {
       waitDuration: tooltipDelay,
       child: TextButton(
         style: ButtonStyle(
-          shape: WidgetStateProperty.all(
+          shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0))),
-          backgroundColor: WidgetStateProperty.resolveWith(
+          backgroundColor: MaterialStateProperty.resolveWith(
             (states) {
-              if (states.contains(WidgetState.disabled)) {
+              if (states.contains(MaterialState.disabled)) {
                 return runButtonColor.withOpacity(0.4);
               }
 
