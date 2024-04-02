@@ -4,17 +4,17 @@ permissions: read-all
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - '.github/workflows/sketch_pad.yml'
-      - 'pkgs/sketch_pad/**'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - '.github/workflows/sketch_pad.yml'
-      - 'pkgs/sketch_pad/**'
-  schedule:
-    - cron: '0 0 * * 0' # weekly
+      - ".github/workflows/sketch_pad.yml"
+      - "pkgs/sketch_pad/**"
+  # pull_request:
+  #   branches: [ main ]
+  #   paths:
+  #     - '.github/workflows/sketch_pad.yml'
+  #     - 'pkgs/sketch_pad/**'
+  # schedule:
+  #   - cron: '0 0 * * 0' # weekly
 
 jobs:
   validate:
@@ -33,3 +33,6 @@ jobs:
       - run: dart format --set-exit-if-changed .
       - run: flutter build web
       - run: flutter test
+      - uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: .build/web
