@@ -77,15 +77,13 @@ class _ExecutionWidgetState extends State<ExecutionWidget> {
             aspectRatio: 0.487198,
             child: Stack(
               children: [
+                Image.asset('assets/iphone.png'),
                 AspectRatio(
                   aspectRatio: 0.487198,
                   child: LayoutBuilder(
                     builder: (context, constraints) =>
                         flutterFrame(constraints),
                   ),
-                ),
-                IgnorePointer(
-                  child: Image.asset('assets/iphone.png'),
                 ),
               ],
             ),
