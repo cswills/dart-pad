@@ -79,7 +79,7 @@ class _ExecutionWidgetState extends State<ExecutionWidget> {
               children: [
                 flutterFrame(),
                 IgnorePointer(
-                  child: Image.asset('iphone.png'),
+                  child: Image.asset('assets/iphone.png'),
                 ),
               ],
             ),
