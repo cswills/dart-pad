@@ -36,6 +36,7 @@ flutter:
     - assets/flame_logo_192.png
     - assets/flutter_logo_192.png
     - assets/gemini_sparkle_192.png
+    - assets/iphone.png
   fonts:
     - family: RobotoMono
       fonts:

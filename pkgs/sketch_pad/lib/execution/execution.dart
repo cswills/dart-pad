@@ -73,16 +73,36 @@ class _ExecutionWidgetState extends State<ExecutionWidget> {
         return Container(
           color: theme.scaffoldBackgroundColor,
           padding: const EdgeInsets.all(denseSpacing),
-          child: HtmlElementView(
-            key: _elementViewKey,
-            viewType: _viewType,
-            onPlatformViewCreated: (int id) {
-              widget.appServices
-                  .registerExecutionService(executionServiceInstance);
-            },
+          child: AspectRatio(
+            aspectRatio: 0.487198,
+            child: Stack(
+              children: [
+                flutterFrame(),
+                IgnorePointer(
+                  child: Image.asset('iphone.png'),
+                ),
+              ],
+            ),
           ),
         );
       },
+    );
+  }
+
+  Padding flutterFrame() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(17.0, 14.0, 17.0, 14.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(48.0),
+        child: HtmlElementView(
+          key: _elementViewKey,
+          viewType: _viewType,
+          onPlatformViewCreated: (int id) {
+            widget.appServices
+                .registerExecutionService(executionServiceInstance);
+          },
+        ),
+      ),
     );
   }
 
