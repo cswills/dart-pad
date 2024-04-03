@@ -5,6 +5,7 @@
 import 'dart:ui_web' as ui_web;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:web/web.dart' as web;
 
 import '../model.dart';
@@ -77,7 +78,13 @@ class _ExecutionWidgetState extends State<ExecutionWidget> {
             aspectRatio: 0.487198,
             child: Stack(
               children: [
-                flutterFrame(),
+                AspectRatio(
+                  aspectRatio: 0.487198,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) =>
+                        flutterFrame(constraints),
+                  ),
+                ),
                 IgnorePointer(
                   child: Image.asset('assets/iphone.png'),
                 ),
@@ -89,11 +96,14 @@ class _ExecutionWidgetState extends State<ExecutionWidget> {
     );
   }
 
-  Padding flutterFrame() {
+  Padding flutterFrame(BoxConstraints constraints) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(17.0, 14.0, 17.0, 14.0),
+      padding: EdgeInsets.symmetric(
+        horizontal: constraints.maxWidth * 0.04,
+        vertical: constraints.maxHeight * 0.018,
+      ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(48.0),
+        borderRadius: BorderRadius.circular(constraints.maxHeight * 0.06),
         child: HtmlElementView(
           key: _elementViewKey,
           viewType: _viewType,
